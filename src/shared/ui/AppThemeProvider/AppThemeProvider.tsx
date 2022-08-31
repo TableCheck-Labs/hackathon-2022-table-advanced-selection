@@ -1,21 +1,30 @@
 import { css, Global } from '@emotion/react';
 import { ThemeProvider as TablekitThemeProvider } from '@tablecheck/tablekit-theme';
-import { commonTypographyStyles, desktopTypographyStyles } from '@tablecheck/tablekit-typography';
+import {
+  commonTypographyStyles,
+  desktopTypographyStyles
+} from '@tablecheck/tablekit-typography';
 import * as React from 'react';
 import { useTranslation } from 'react-i18next';
 
 import {
+  getScrollbarCssVariables,
+  getScrollbarStyles
+} from 'shared/helpers/scrollbar';
+import {
+  appThemeTypes,
+  UITheme
+} from 'shared/ui/AppThemeProvider/appTheme.types';
+import {
   ThemeController,
   ThemeControllerContext
 } from 'shared/ui/AppThemeProvider/appThemeControllerContext';
-import { appThemeTypes, UITheme } from 'shared/ui/AppThemeProvider/appTheme.types';
-import { getScrollbarCssVariables, getScrollbarStyles } from 'shared/helpers/scrollbar';
 
 export function AppThemeProvider({
-                                   children
-                                 }: {
+  children
+}: {
   children: React.ReactNode;
-}): JSX.Element{
+}): JSX.Element {
   const [themeType, setUITheme] = React.useState(UITheme.Classic);
   const [, { language }] = useTranslation();
   const theme = appThemeTypes[themeType];
