@@ -1,0 +1,8 @@
+coverage
+lib
+build
+dist
+docs
+node_modules
+/src/definitions/carbonIcons.d.ts
+/cypress.config.ts

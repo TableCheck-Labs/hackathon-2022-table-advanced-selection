@@ -1,0 +1,10 @@
+package-lock.json
+lib
+node_modules
+dist
+build
+styleguide
+coverage
+docs
+CHANGELOG.md
+/src/definitions/carbonIcons.d.ts
