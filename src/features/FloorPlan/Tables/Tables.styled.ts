@@ -6,6 +6,7 @@ import { TableSchema } from 'features/FloorPlan/Tables/tables.types';
 export const TableLabel = styled.text`
   user-select: none;
   fill: ${({ theme: { colors } }) => colors.invertedText};
+  pointer-events: none;
 `;
 
 TableLabel.defaultProps = {
