@@ -9,16 +9,16 @@ import {
 import { ItemGroupOrientation } from '@tablecheck/tablekit-item';
 import { Size } from '@tablecheck/tablekit-theme';
 
+import { useAppLayoutContext } from 'layouts/appLayoutContext';
+import { UITheme } from 'shared/ui/AppThemeProvider/appTheme.types';
+import { useThemeControllerContext } from 'shared/ui/AppThemeProvider/appThemeControllerContext';
 import {
   SideNavContent,
   SideNavPanel,
   AvatarWrapper,
   UserDetails,
   UserDetailsHeader
-} from 'components/TopNav/SideNav/sidenav.styles';
-import { useAppLayoutContext } from 'layouts/appLayoutContext';
-import { UITheme } from 'shared/ui/AppThemeProvider/appTheme.types';
-import { useThemeControllerContext } from 'shared/ui/AppThemeProvider/appThemeControllerContext';
+} from 'shared/ui/TopNav/SideNav/sidenav.styles';
 
 function ThemeIcon({ themeType }: { themeType: UITheme }): JSX.Element {
   return themeType === UITheme.Classic ? <Sun size={16} /> : <Moon size={16} />;

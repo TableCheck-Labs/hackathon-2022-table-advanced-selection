@@ -1,7 +1,7 @@
 import { useTheme } from '@emotion/react';
 import { LogoSymbol } from '@tablecheck/tablekit-logo';
 
-import { LogoWrapper } from 'components/TopNav/Logo/logo.styled';
+import { LogoWrapper } from 'shared/ui/TopNav/Logo/logo.styled';
 
 export function AppLogo(): JSX.Element {
   const { isDark } = useTheme();
