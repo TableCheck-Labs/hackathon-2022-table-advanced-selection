@@ -22,7 +22,7 @@ const tables: TableSchema[] = [
     status: 'booked',
     row: 5,
     column: 5,
-    size: 's'
+    size: 'm'
   },
   {
     id: 2,
@@ -30,7 +30,7 @@ const tables: TableSchema[] = [
     status: 'available',
     row: 2,
     column: 1,
-    size: 's'
+    size: 'l'
   },
   {
     id: 3,
@@ -38,7 +38,7 @@ const tables: TableSchema[] = [
     status: 'available',
     row: 6,
     column: 2,
-    size: 's'
+    size: 'l'
   }
 ];
 
