@@ -2,7 +2,6 @@ import { Navigate, Route, Routes } from 'react-router-dom';
 
 import { AppLayout } from 'layouts/AppLayout';
 import { BookingConfirmationPage } from 'pages/BookingConfirmationPage/BookingConfirmationPage';
-import { BookingReviewPage } from 'pages/BookingReviewPage/BookingReviewPage';
 import { PaymentConfirmationPage } from 'pages/PaymentConfirmationPage/PaymentConfirmationPage';
 import { TableSelectionPage } from 'pages/TableSelectionPage/TableSelectionPage';
 
@@ -22,10 +21,6 @@ export function AppRouter(): JSX.Element {
         <Route
           path="booking-confirmation"
           element={<BookingConfirmationPage />}
-        />
-        <Route
-          path="booking-review"
-          element={<BookingReviewPage />}
         />
         <Route
           path="table-selection"

@@ -8,14 +8,14 @@ import {
 } from 'shared/ui/TopNav/topNav.styles';
 
 export function RightContent(): JSX.Element {
-  const { setIsSideNavOpen } = useAppLayoutContext();
+  const { isSideNavOpen, setIsSideNavOpen } = useAppLayoutContext();
 
   return (
     <RightContentBoxContainer>
       <TopNavItem
         elemBefore={<Menu size={24} />}
         onClick={() => {
-          setIsSideNavOpen(true);
+          setIsSideNavOpen(!isSideNavOpen);
         }}
       />
     </RightContentBoxContainer>
