@@ -28,7 +28,7 @@ export function AppRouter(): JSX.Element {
           element={<TableSelectionPage />}
         />
         <Route
-          path="payment-confirmation"
+          path="payment-confirmation/:tableId"
           element={<PaymentConfirmationPage />}
         />
         <Route

@@ -6,7 +6,7 @@ import {
 } from '@tablecheck/tablekit-phone-input';
 import { FontWeight, Size } from '@tablecheck/tablekit-theme';
 import { useTranslation } from 'react-i18next';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
 import {
   DetailWrapper,
@@ -18,10 +18,16 @@ import {
   SubItemValue,
   Title
 } from 'pages/PaymentConfirmationPage/paymentConfirmation.styles';
+import { tables } from 'pages/TableSelectionPage/mocks';
 
 export function PaymentConfirmationPage(): JSX.Element {
+  const { tableId } = useParams();
   const navigate = useNavigate();
   const [t] = useTranslation();
+  const selectedTable = tables.find(({ id }) => id === tableId);
+  const tablePrice = selectedTable!.price;
+  const taxes = selectedTable!.price * 0.025;
+  const total = tablePrice + taxes;
 
   return (
     <StyledPageWrapper>
@@ -85,7 +91,7 @@ export function PaymentConfirmationPage(): JSX.Element {
             <ItemValue>
               {t('pages:payment_confirmation.private_room')}
             </ItemValue>
-            <ItemValue>¥4000</ItemValue>
+            <ItemValue>{`¥${tablePrice}`}</ItemValue>
           </ItemRow>
           <ItemRow>
             <SubItemValue>
@@ -97,17 +103,17 @@ export function PaymentConfirmationPage(): JSX.Element {
         <DetailWrapper>
           <ItemRow>
             <ItemValue>{t('pages:payment_confirmation.subtotal')}</ItemValue>
-            <ItemValue>¥4100</ItemValue>
+            <ItemValue>{`¥${total}`}</ItemValue>
           </ItemRow>
           <ItemRow>
             <ItemValue>{t('pages:payment_confirmation.taxes')}</ItemValue>
-            <ItemValue>¥100</ItemValue>
+            <ItemValue>{`¥${taxes}`}</ItemValue>
           </ItemRow>
           <ItemRow>
             <ItemValue fontWeight={FontWeight.Bold}>
               {t('pages:payment_confirmation.total')}
             </ItemValue>
-            <ItemValue fontWeight={FontWeight.Bold}>¥4100</ItemValue>
+            <ItemValue fontWeight={FontWeight.Bold}>{`¥${total}`}</ItemValue>
           </ItemRow>
         </DetailWrapper>
       </div>

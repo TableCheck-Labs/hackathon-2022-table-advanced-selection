@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
 import { Panel, PanelPosition } from '@tablecheck/tablekit-panel';
 import { Spacing } from '@tablecheck/tablekit-theme';
+import { Typography } from '@tablecheck/tablekit-typography';
 import * as React from 'react';
 
 import { FloorPlan } from 'features/FloorPlan/FloorPlan';
@@ -11,6 +12,7 @@ import { tables } from 'pages/TableSelectionPage/mocks';
 import { PageWrapper } from 'pages/pages.styles';
 
 const FloorTitle = styled.h3`
+  ${Typography.Heading2};
   padding: ${Spacing.L4} ${Spacing.L2};
 `;
 
@@ -40,7 +42,7 @@ export function TableSelectionPage(): JSX.Element {
       </FloorContainer>
       <Panel
         onClickOutside={() => setSelectedTable(null)}
-        height="55%"
+        height="60%"
         isOpen={!!selectedTable}
         position={PanelPosition.Bottom}
       >
