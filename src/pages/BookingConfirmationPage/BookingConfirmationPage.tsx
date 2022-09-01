@@ -16,6 +16,9 @@ import { ItemGroupOrientation } from '@tablecheck/tablekit-item';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 
+import diningTableDarkMode from 'assets/images/dining-table-dark-mode.svg';
+import diningTableLightMode from 'assets/images/dining-table-light-mode.svg';
+import restaurantLogo from 'assets/images/restaurant_logo.png';
 import {
   DescriptionBlock,
   ItemRow,
@@ -37,7 +40,7 @@ export function BookingConfirmationPage(): JSX.Element {
   return (
     <PageWrapper>
       <RestaurantLogo
-        src="/static/images/restaurant_logo.png"
+        src={restaurantLogo}
         alt="Logo"
       />
       <RestaurantName>
@@ -108,11 +111,7 @@ export function BookingConfirmationPage(): JSX.Element {
             </Button>
           </DescriptionBlock>
           <img
-            src={
-              isDark
-                ? '/static/images/dining-table-dark-mode.svg'
-                : '/static/images/dining-table-light-mode.svg'
-            }
+            src={isDark ? diningTableDarkMode : diningTableLightMode}
             alt="Select tables"
           />
         </TwoColumnBlock>
