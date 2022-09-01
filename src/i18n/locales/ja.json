@@ -3,7 +3,8 @@
     "name": "Table Selection"
   },
   "actions": {
-    "select_table": "テーブルを選択"
+    "select_table": "テーブルを選択",
+    "confirm_booking": "確認"
   },
   "pages": {
     "booking_confirmation": {
@@ -16,6 +17,20 @@
       "reservation_time": "午後7時",
       "reservation_selection_title": "テーブル アドバンス セレクション",
       "reservation_selection_description": "テーブルの場所を事前に選択して、ダイニング体験を充実させましょう."
+    },
+    "payment_confirmation": {
+      "complete_payment": "お支払い完了",
+      "order_title": "ご注文",
+      "subtotal": "小計",
+      "taxes": "税金",
+      "total": "合計",
+      "phone_number": "電話番号",
+      "private_room": "個室",
+      "subtitle": "2名様"
+    },
+    "booking_success": {
+      "title": "あなたのテーブルは予約されています",
+      "description": "私達を選んで頂き有難うございます。 また近いうちにお会いしましょう。"
     }
   },
   "user_details": {

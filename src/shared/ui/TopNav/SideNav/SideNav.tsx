@@ -55,7 +55,6 @@ export function SideNav(): JSX.Element {
         <UserDetails className="ph-no-capture">
           <UserDetailsHeader>{t('user_details:name')}</UserDetailsHeader>
         </UserDetails>
-
         <Button
           appearance={ButtonAppearance.Outline}
           shape={ButtonShape.Circular}

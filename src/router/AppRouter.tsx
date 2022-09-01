@@ -2,6 +2,7 @@ import { Navigate, Route, Routes } from 'react-router-dom';
 
 import { AppLayout } from 'layouts/AppLayout';
 import { BookingConfirmationPage } from 'pages/BookingConfirmationPage/BookingConfirmationPage';
+import { BookingSuccessPage } from 'pages/BookingSuccessPage/BookingSuccessPage';
 import { PaymentConfirmationPage } from 'pages/PaymentConfirmationPage/PaymentConfirmationPage';
 import { TableSelectionPage } from 'pages/TableSelectionPage/TableSelectionPage';
 
@@ -29,6 +30,10 @@ export function AppRouter(): JSX.Element {
         <Route
           path="payment-confirmation"
           element={<PaymentConfirmationPage />}
+        />
+        <Route
+          path="booking-success"
+          element={<BookingSuccessPage />}
         />
 
         <Route

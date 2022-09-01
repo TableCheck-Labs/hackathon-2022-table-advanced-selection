@@ -3,7 +3,8 @@
     "name": "Table Selection"
   },
   "actions": {
-    "select_table": "Select table"
+    "select_table": "Select table",
+    "confirm_booking": "Confirm"
   },
   "pages": {
     "booking_confirmation": {
@@ -16,6 +17,20 @@
       "reservation_time": "7:00 PM",
       "reservation_selection_title": "Table Advance Selection",
       "reservation_selection_description": "Enrich dining experience by selecting your table location upfront."
+    },
+    "payment_confirmation": {
+      "complete_payment": "Complete payment",
+      "order_title": "Your order",
+      "subtotal": "Subtotal",
+      "taxes": "Taxes",
+      "total": "Total",
+      "phone_number": "Phone number",
+      "private_room": "Private room",
+      "subtitle": "For 2 guests"
+    },
+    "booking_success": {
+      "title": "Your table is reserved",
+      "description": "Thank you for choosing us. See you soon."
     }
   },
   "user_details": {

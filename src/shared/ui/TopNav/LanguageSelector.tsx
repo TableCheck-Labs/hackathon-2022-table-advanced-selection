@@ -1,6 +1,6 @@
 import { Wikis } from '@carbon/icons-react';
 import { ordered } from '@tablecheck/locales';
-import { Item } from '@tablecheck/tablekit-item';
+import { Appearance, Button, ButtonShape } from '@tablecheck/tablekit-button';
 import {
   LanguageSelector as TKLanguageSelector,
   View
@@ -19,15 +19,17 @@ export function LanguageSelector(): JSX.Element {
       onChangeLanguage={(nextLanguage) => changeLanguage(nextLanguage)}
       view={View.Mobile}
       itemWidth="100%"
-      renderTrigger={({ onClick, isOpen, ref }) => (
-        <Item
-          isSelected={isOpen}
+      renderTrigger={({ onClick, ref }) => (
+        <Button
           onClick={onClick}
           ref={ref}
-          elemBefore={<Wikis size={24} />}
+          appearance={Appearance.Outline}
+          shape={ButtonShape.Circular}
+          /* eslint-disable-next-line react/no-unstable-nested-components */
+          iconBefore={() => <Wikis size={24} />}
         >
           {currentLocale?.label}
-        </Item>
+        </Button>
       )}
     />
   );

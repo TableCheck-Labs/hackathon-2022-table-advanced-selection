@@ -50,7 +50,10 @@ export function TableSelectionPage(): JSX.Element {
       >
         <PanelContent>{JSON.stringify(selectedTable)}</PanelContent>
       </Panel>
-      <Button onClick={() => navigate('/payment-confirmation')}>
+      <Button
+        shouldFitContainer
+        onClick={() => navigate('/payment-confirmation')}
+      >
         Checkout
       </Button>
     </PageWrapper>
