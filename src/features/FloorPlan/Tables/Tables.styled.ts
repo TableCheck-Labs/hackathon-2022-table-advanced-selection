@@ -1,6 +1,7 @@
 import { css, Theme } from '@emotion/react';
 import styled from '@emotion/styled';
 
+import { getStatusColor } from 'features/FloorPlan/Tables/table.helpers';
 import { TableSchema } from 'features/FloorPlan/Tables/tables.types';
 
 export const TableLabel = styled.text`
@@ -21,7 +22,7 @@ const getShapeColors = ({
   theme: Theme;
   status: TableSchema['status'];
 }) => css`
-  fill: ${status === 'available' ? colors.primary : colors.disabledBackground};
+  fill: ${getStatusColor(status, colors)};
   stroke: ${colors.border};
   stroke-width: 6;
 

@@ -1,3 +1,5 @@
+import { Theme } from '@emotion/react';
+
 import { TableSchema } from 'features/FloorPlan/Tables/tables.types';
 import { Cell } from 'features/FloorPlan/floor.types';
 
@@ -61,4 +63,20 @@ export const getRoundSideDimensions = (
       radius / 2 +
       (cell.height * multiplier - radius) / 2
   };
+};
+
+export const getStatusColor = (
+  status: TableSchema['status'],
+  colors: Theme['colors']
+): string => {
+  switch (status) {
+    case 'available':
+      return colors.secondary;
+    case 'booked':
+      return colors.disabledBackground;
+    case 'extra':
+      return colors.accent;
+    default:
+      return colors.primary;
+  }
 };

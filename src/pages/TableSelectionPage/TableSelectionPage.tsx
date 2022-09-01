@@ -6,6 +6,7 @@ import * as React from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import { FloorPlan } from 'features/FloorPlan/FloorPlan';
+import { StatusBlock } from 'features/FloorPlan/StatusBlock';
 import { TableSchema } from 'features/FloorPlan/Tables/tables.types';
 import { PageWrapper } from 'pages/pages.styles';
 
@@ -16,16 +17,15 @@ const PanelContent = styled.div`
   padding: ${Spacing.L2};
 `;
 
+const FloorTitle = styled.h3`
+  padding: ${Spacing.L4} ${Spacing.L2};
+`;
+
 const FloorContainer = styled.div`
   display: flex;
   flex-direction: column;
   flex: 1;
   min-height: 0;
-`;
-
-const TableLegend = styled.div`
-  min-height: 40%;
-  flex: 0;
 `;
 
 export function TableSelectionPage(): JSX.Element {
@@ -37,9 +37,9 @@ export function TableSelectionPage(): JSX.Element {
   return (
     <PageWrapper>
       <FloorContainer>
-        <h3>Select your table</h3>
+        <FloorTitle>Select your table</FloorTitle>
         <FloorPlan onTableClick={(table) => setSelectedTable(table)} />
-        <TableLegend />
+        <StatusBlock />
       </FloorContainer>
       <Panel
         onClickOutside={() => setSelectedTable(null)}
