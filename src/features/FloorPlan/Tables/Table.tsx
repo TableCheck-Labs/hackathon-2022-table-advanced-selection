@@ -9,15 +9,18 @@ import { Cell } from 'features/FloorPlan/floor.types';
 export function Table({
   table,
   cell,
-  onClick
+  onClick,
+  isSelected
 }: {
   table: TableSchema;
   cell: Cell;
   onClick: OnTableClick;
+  isSelected: boolean;
 }): JSX.Element | null {
   if (table.shape === 'square') {
     return (
       <SquareTable
+        isSelected={isSelected}
         table={table}
         cell={cell}
         onClick={onClick}
@@ -27,6 +30,7 @@ export function Table({
   if (table.shape === 'round') {
     return (
       <RoundTable
+        isSelected={isSelected}
         table={table}
         cell={cell}
         onClick={onClick}

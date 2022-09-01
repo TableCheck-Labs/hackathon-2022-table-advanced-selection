@@ -2,8 +2,10 @@ import { SizeMeProps, withSize } from 'react-sizeme';
 
 import { CanvasContainer } from 'features/FloorPlan/FloorPlan.styled';
 import { Table } from 'features/FloorPlan/Tables/Table';
-import { OnTableClick } from 'features/FloorPlan/Tables/tables.types';
-import { tables } from 'features/FloorPlan/mocks';
+import {
+  OnTableClick,
+  TableSchema
+} from 'features/FloorPlan/Tables/tables.types';
 
 const GRID_COLUMNS = 8;
 const GRID_ROWS = 9;
@@ -11,11 +13,15 @@ const GRID_ROWS = 9;
 function FloorCanvas({
   width,
   height,
-  onTableClick
+  onTableClick,
+  selectedTable,
+  tables
 }: {
   onTableClick: OnTableClick;
   width: number;
   height: number;
+  selectedTable: TableSchema | null;
+  tables: TableSchema[];
 }) {
   const cell = {
     height: height / GRID_ROWS,
@@ -31,6 +37,7 @@ function FloorCanvas({
           key={table.id}
           table={table}
           cell={cell}
+          isSelected={!!selectedTable && selectedTable.id === table.id}
           onClick={onTableClick}
         />
       ))}
@@ -47,13 +54,21 @@ export const FloorPlan = withSize({
 })(
   ({
     size: { width, height },
-    onTableClick
-  }: { onTableClick: OnTableClick } & SizeMeProps) => (
+    selectedTable,
+    onTableClick,
+    tables
+  }: {
+    onTableClick: OnTableClick;
+    selectedTable: TableSchema | null;
+    tables: TableSchema[];
+  } & SizeMeProps) => (
     <CanvasContainer>
       {width && height && (
         <FloorCanvas
+          tables={tables}
           width={width}
           height={height}
+          selectedTable={selectedTable}
           onTableClick={onTableClick}
         />
       )}

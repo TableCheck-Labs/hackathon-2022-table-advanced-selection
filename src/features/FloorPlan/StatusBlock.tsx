@@ -1,6 +1,7 @@
 import { useTheme } from '@emotion/react';
 import styled from '@emotion/styled/dist/emotion-styled.cjs';
 import { Spacing } from '@tablecheck/tablekit-theme';
+import { useTranslation } from 'react-i18next';
 
 import { getStatusColor } from 'features/FloorPlan/Tables/table.helpers';
 import { TableStatus } from 'features/FloorPlan/Tables/tables.types';
@@ -29,12 +30,13 @@ const ColoredCircle = styled.div<{ fill: string }>`
 
 export function StatusBlock(): JSX.Element {
   const { colors } = useTheme();
+  const [t] = useTranslation();
   return (
     <StatusBlockContainer>
       {Object.values(TableStatus).map((status) => (
         <StatusContainer key={status}>
           <ColoredCircle fill={getStatusColor(status, colors)} />
-          <StatusName>{status}</StatusName>
+          <StatusName>{t(`tables:statuses.${status}`)}</StatusName>
         </StatusContainer>
       ))}
     </StatusBlockContainer>

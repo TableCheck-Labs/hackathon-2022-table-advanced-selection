@@ -12,9 +12,11 @@ import { Cell } from 'features/FloorPlan/floor.types';
 export function RoundTable({
   table,
   cell,
+  isSelected,
   onClick
 }: {
   table: TableSchema;
+  isSelected: boolean;
   cell: Cell;
   onClick: OnTableClick;
 }): JSX.Element {
@@ -24,7 +26,7 @@ export function RoundTable({
     <>
       <RoundShape
         {...dimensions}
-        status={table.status}
+        status={isSelected ? 'selected' : table.status}
         onClick={() => onClick(table)}
         fill="black"
       />

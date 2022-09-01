@@ -12,18 +12,20 @@ import { Cell } from 'features/FloorPlan/floor.types';
 export function SquareTable({
   table,
   cell,
-  onClick
+  onClick,
+  isSelected
 }: {
   table: TableSchema;
   cell: Cell;
   onClick: OnTableClick;
+  isSelected: boolean;
 }): JSX.Element {
   const dimensions = getSquareSideDimensions(table, cell);
   return (
     <>
       <SquareShape
         {...dimensions}
-        status={table.status}
+        status={isSelected ? 'selected' : table.status}
         onClick={() => onClick(table)}
       />
       <TableLabel

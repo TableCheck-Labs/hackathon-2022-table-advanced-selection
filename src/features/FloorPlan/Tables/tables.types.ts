@@ -12,6 +12,10 @@ export interface TableSchema {
   row: number;
   column: number;
   size: 's' | 'm' | 'l';
+  photo: string;
+  title: string;
+  description: string;
+  price: number;
 }
 
 export type OnTableClick = (table: TableSchema) => void;

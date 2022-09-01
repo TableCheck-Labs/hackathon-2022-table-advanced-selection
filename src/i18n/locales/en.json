@@ -4,7 +4,16 @@
   },
   "actions": {
     "select_table": "Select table",
-    "confirm_booking": "Confirm"
+    "confirm_booking": "Confirm",
+    "select_table_and_pay": "Select table and pay ¥{{sum}}"
+  },
+  "tables": {
+    "statuses": {
+      "available": "Available",
+      "booked": "Unavailable",
+      "selected": "Your Table",
+      "extra": "Extra options (¥)"
+    }
   },
   "pages": {
     "booking_confirmation": {
