@@ -46,7 +46,12 @@ export function TableSelectionPage(): JSX.Element {
         isOpen={!!selectedTable}
         position={PanelPosition.Bottom}
       >
-        {selectedTable && <TableDescription table={selectedTable} />}
+        {selectedTable && (
+          <TableDescription
+            onClose={() => setSelectedTable(null)}
+            table={selectedTable}
+          />
+        )}
       </Panel>
     </PageWrapper>
   );

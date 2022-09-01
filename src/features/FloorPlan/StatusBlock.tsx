@@ -29,13 +29,13 @@ const ColoredCircle = styled.div<{ fill: string }>`
 `;
 
 export function StatusBlock(): JSX.Element {
-  const { colors } = useTheme();
+  const { isDark } = useTheme();
   const [t] = useTranslation();
   return (
     <StatusBlockContainer>
       {Object.values(TableStatus).map((status) => (
         <StatusContainer key={status}>
-          <ColoredCircle fill={getStatusColor(status, colors)} />
+          <ColoredCircle fill={getStatusColor(status, isDark)} />
           <StatusName>{t(`tables:statuses.${status}`)}</StatusName>
         </StatusContainer>
       ))}

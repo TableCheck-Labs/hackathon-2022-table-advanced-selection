@@ -1,4 +1,4 @@
-import { Theme } from '@emotion/react';
+import { CLASSIC_COLORS, DARK_COLORS } from '@tablecheck/tablekit-theme';
 
 import { TableSchema } from 'features/FloorPlan/Tables/tables.types';
 import { Cell } from 'features/FloorPlan/floor.types';
@@ -26,14 +26,15 @@ export const getSquareSideDimensions = (
   y: number;
 } => {
   const multiplier = getSideMultiplier(table.size);
-  const side =
-    (cell.width > cell.height ? cell.height : cell.width) * multiplier - 10;
+  const maxSide =
+    (cell.width > cell.height ? cell.height : cell.width) * multiplier;
+  const side = maxSide * 0.8;
 
   return {
     height: side,
     width: side,
-    rx: side * 0.1,
-    ry: side * 0.1,
+    rx: side * 0.05,
+    ry: side * 0.05,
     x: (table.column - 1) * cell.width + (cell.width * multiplier - side) / 2,
     y: (table.row - 1) * cell.height + (cell.height * multiplier - side) / 2
   };
@@ -67,16 +68,16 @@ export const getRoundSideDimensions = (
 
 export const getStatusColor = (
   status: TableSchema['status'],
-  colors: Theme['colors']
+  isDark: boolean
 ): string => {
   switch (status) {
     case 'available':
-      return colors.secondary;
+      return isDark ? '#DDD' : '#999';
     case 'booked':
-      return colors.disabledBackground;
+      return isDark ? '#E4E4E4' : '#E4E4E4';
     case 'extra':
-      return colors.accent;
+      return isDark ? '#3C3C3C' : '#3C3C3C';
     default:
-      return colors.primary;
+      return isDark ? DARK_COLORS.primary : CLASSIC_COLORS.primary;
   }
 };
