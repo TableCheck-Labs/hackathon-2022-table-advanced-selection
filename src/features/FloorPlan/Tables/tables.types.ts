@@ -1,7 +1,7 @@
 export interface TableSchema {
-  id: number;
+  id: string;
   shape: 'square' | 'round';
-  status: 'available' | 'booked';
+  status: 'available' | 'booked' | 'selected' | 'extra';
   row: number;
   column: number;
   size: 's' | 'm' | 'l';
