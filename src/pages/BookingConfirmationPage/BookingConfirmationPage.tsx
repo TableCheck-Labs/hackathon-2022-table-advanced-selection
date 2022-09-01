@@ -6,12 +6,14 @@ import {
   Share,
   Time
 } from '@carbon/icons-react';
+import { useTheme } from '@emotion/react';
 import {
   Button,
   ButtonAppearance,
   ButtonShape
 } from '@tablecheck/tablekit-button';
 import { ItemGroupOrientation } from '@tablecheck/tablekit-item';
+import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 
 import {
@@ -28,6 +30,8 @@ import {
 import { ContentBlock, PageWrapper } from 'pages/pages.styles';
 
 export function BookingConfirmationPage(): JSX.Element {
+  const [t] = useTranslation();
+  const { isDark } = useTheme();
   const navigate = useNavigate();
 
   return (
@@ -36,12 +40,16 @@ export function BookingConfirmationPage(): JSX.Element {
         src="/static/images/restaurant_logo.png"
         alt="Logo"
       />
-      <RestaurantName>Teppan Baby Shinjuku</RestaurantName>
+      <RestaurantName>
+        {t('pages:booking_confirmation.restaurant_name')}
+      </RestaurantName>
       <ContentBlock>
         <Title textAlign="center">
-          We&apos;ve successfully booked your reservation
+          {t('pages:booking_confirmation.reservation_success')}
         </Title>
-        <RestaurantId>Reservation ID: HDS890B</RestaurantId>
+        <RestaurantId>
+          {t('pages:booking_confirmation.reservation_id')}
+        </RestaurantId>
         <StyledItemGroup
           hasIndent
           orientation={ItemGroupOrientation.Horizontal}
@@ -67,36 +75,44 @@ export function BookingConfirmationPage(): JSX.Element {
         </StyledItemGroup>
       </ContentBlock>
       <ContentBlock>
-        <Title>Reservations details</Title>
+        <Title>{t('pages:booking_confirmation.reservation_details')}</Title>
         <ItemRow>
           <Events size={24} />
-          <span>2 Adults</span>
+          <span>{t('pages:booking_confirmation.reservation_party_size')}</span>
         </ItemRow>
         <ItemRow>
           <Event size={24} />
-          <span>Sat 03 Sept</span>
+          <span>{t('pages:booking_confirmation.reservation_date')}</span>
         </ItemRow>
         <ItemRow>
           <Time size={24} />
-          <span>7:00 PM</span>
+          <span>{t('pages:booking_confirmation.reservation_time')}</span>
         </ItemRow>
       </ContentBlock>
       <ContentBlock isFeature>
         <TwoColumnBlock>
           <DescriptionBlock>
-            <Title>Table Advance Selection</Title>
+            <Title>
+              {t('pages:booking_confirmation.reservation_selection_title')}
+            </Title>
             <Text>
-              Enrich dining experience by selecting your table location upfront.
+              {t(
+                'pages:booking_confirmation.reservation_selection_description'
+              )}
             </Text>
             <Button
               onClick={() => navigate('/table-selection')}
               shape={ButtonShape.Circular}
             >
-              Select Table
+              {t('actions:select_table')}
             </Button>
           </DescriptionBlock>
           <img
-            src="/static/images/dining-table.png"
+            src={
+              isDark
+                ? '/static/images/dining-table-dark-mode.svg'
+                : '/static/images/dining-table-light-mode.svg'
+            }
             alt="Select tables"
           />
         </TwoColumnBlock>

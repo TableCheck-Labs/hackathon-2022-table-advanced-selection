@@ -25,15 +25,7 @@ export const ContentBlock = styled.div<{ isFeature?: boolean }>`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  border: ${({ isFeature, theme: { colors } }) =>
-    isFeature ? 'none;' : `1px solid ${colors.border};`};
-  background: ${({ isFeature, theme: { isDark } }) =>
-    // eslint-disable-next-line no-nested-ternary
-    isFeature
-      ? isDark
-        ? 'linear-gradient(#9a4fff, #6c289a);'
-        : 'linear-gradient(#e0ccfb, #c87bfd);'
-      : 'none;'};
+  border: 1px solid ${({ theme: { colors } }) => colors.border};
   filter: ${({ isFeature }) => (isFeature ? 'none;' : 'blur(2px);')};
 
   & > * {
