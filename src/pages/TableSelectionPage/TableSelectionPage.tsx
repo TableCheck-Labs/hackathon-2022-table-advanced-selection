@@ -26,6 +26,7 @@ const FloorContainer = styled.div`
   flex-direction: column;
   flex: 1;
   min-height: 0;
+  width: 100%;
 `;
 
 export function TableSelectionPage(): JSX.Element {

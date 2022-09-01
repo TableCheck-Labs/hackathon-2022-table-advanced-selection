@@ -66,6 +66,10 @@ export const TwoColumnBlock = styled.div`
   display: flex;
 
   & > div {
-    width: 60%;
+    margin-right: ${Spacing.L4};
+  }
+
+  & > img {
+    width: 40%;
   }
 `;

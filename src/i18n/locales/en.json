@@ -1,0 +1,28 @@
+{
+  "application": {
+    "name": "Table Selection"
+  },
+  "actions": {
+    "select_table": "Select table"
+  },
+  "pages": {
+    "booking_confirmation": {
+      "restaurant_name": "Teppan Baby Shinjuku",
+      "reservation_success": "We've successfully booked your reservation",
+      "reservation_id": "Reservation ID: HDS890B",
+      "reservation_details": "Reservation details",
+      "reservation_party_size": "2 Adults",
+      "reservation_date": "Sat 03 Sept",
+      "reservation_time": "7:00 PM",
+      "reservation_selection_title": "Table Advance Selection",
+      "reservation_selection_description": "Enrich dining experience by selecting your table location upfront."
+    }
+  },
+  "user_details": {
+    "name": "Tablecheck"
+  },
+  "themes": {
+    "dark_theme": "Dark mode",
+    "classic_theme": "Classic mode"
+  }
+}

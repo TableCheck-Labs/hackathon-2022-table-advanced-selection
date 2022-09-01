@@ -8,14 +8,16 @@ import {
 } from '@tablecheck/tablekit-button';
 import { ItemGroupOrientation } from '@tablecheck/tablekit-item';
 import { Size } from '@tablecheck/tablekit-theme';
+import { useTranslation } from 'react-i18next';
 
 import { useAppLayoutContext } from 'layouts/appLayoutContext';
 import { UITheme } from 'shared/ui/AppThemeProvider/appTheme.types';
 import { useThemeControllerContext } from 'shared/ui/AppThemeProvider/appThemeControllerContext';
+import { LanguageSelector } from 'shared/ui/TopNav/LanguageSelector';
 import {
+  AvatarWrapper,
   SideNavContent,
   SideNavPanel,
-  AvatarWrapper,
   UserDetails,
   UserDetailsHeader
 } from 'shared/ui/TopNav/SideNav/sidenav.styles';
@@ -25,6 +27,7 @@ function ThemeIcon({ themeType }: { themeType: UITheme }): JSX.Element {
 }
 
 export function SideNav(): JSX.Element {
+  const [t] = useTranslation();
   const { toggleUITheme, themeType } = useThemeControllerContext();
   const { isSideNavOpen, setIsSideNavOpen } = useAppLayoutContext();
   const theme = useTheme();
@@ -50,7 +53,7 @@ export function SideNav(): JSX.Element {
           />
         </AvatarWrapper>
         <UserDetails className="ph-no-capture">
-          <UserDetailsHeader>Tablecheck</UserDetailsHeader>
+          <UserDetailsHeader>{t('user_details:name')}</UserDetailsHeader>
         </UserDetails>
 
         <Button
@@ -59,8 +62,9 @@ export function SideNav(): JSX.Element {
           iconBefore={<ThemeIcon themeType={themeType} />}
           onClick={toggleUITheme}
         >
-          {theme.isDark ? 'Classic mode' : 'Dark mode'}
+          {theme.isDark ? t('themes:classic_theme') : t('themes:dark_theme')}
         </Button>
+        <LanguageSelector />
       </SideNavContent>
     </SideNavPanel>
   );
