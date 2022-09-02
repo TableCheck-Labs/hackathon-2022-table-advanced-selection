@@ -25,8 +25,8 @@ export function PaymentConfirmationPage(): JSX.Element {
   const navigate = useNavigate();
   const [t] = useTranslation();
   const selectedTable = tables.find(({ id }) => id === tableId);
-  const tablePrice = selectedTable!.price;
-  const taxes = selectedTable!.price * 0.025;
+  const tablePrice = selectedTable?.price || 0;
+  const taxes = tablePrice * 0.025;
   const total = tablePrice + taxes;
 
   return (
@@ -88,9 +88,7 @@ export function PaymentConfirmationPage(): JSX.Element {
         <DetailWrapper>
           <Title>{t('pages:payment_confirmation.order_title')}</Title>
           <ItemRow>
-            <ItemValue>
-              {t('pages:payment_confirmation.private_room')}
-            </ItemValue>
+            <ItemValue>{selectedTable?.title}</ItemValue>
             <ItemValue>{`¥${tablePrice}`}</ItemValue>
           </ItemRow>
           <ItemRow>
